@@ -29,5 +29,10 @@
         {
             return Users;
         }
+
+        public User GetUser(int id)
+        {
+            return Users.Find(x => x.Id == id);
+        }
     }
 }

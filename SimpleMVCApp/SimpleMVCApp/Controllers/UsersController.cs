@@ -20,5 +20,12 @@
 
             return this.View(users);
         }
+
+        public ActionResult ById(int id)
+        {
+            var u = this.userData.GetUser(id);
+
+            return this.View(u);
+        }
     }
 }
