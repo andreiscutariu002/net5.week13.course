@@ -34,6 +34,18 @@
             currentIdx++;
 
             Users.Add(u);
+
+            // insert in DB
+        }
+
+        public void Edit(User u)
+        {
+            var user = GetUser(u.Id);
+
+            user.Name = u.Name;
+            user.Email = u.Email;
+
+            // update in DB
         }
     }
 }

@@ -29,7 +29,10 @@
                         <td>@user.Id</td>
                         <td>@user.Name</td>
                         <td>@user.Email</td>
-                        <td>@Html.ActionLink("Vezi", "ById", "Users", new { id = @user.Id }, null )</td>
+                        <td>
+                            @Html.ActionLink("Vezi", "ById", "Users", new { id = @user.Id }, null),
+                            @Html.ActionLink("Edit", "EditById", "Users", new { id = @user.Id }, null)
+                        </td>
                     </tr>
                 }
             }

@@ -1,7 +1,7 @@
 ﻿@model SimpleMVCApp.Models.User
 
 <div>
-    <h1>Add user</h1>
+    <h1>Edit user</h1>
 </div>
 
 @*<form method="post" action="/users/createuser2">
@@ -16,18 +16,18 @@
     <input type="submit" />
 </form>*@
 
-@using (Html.BeginForm("CreateUser2", "Users", FormMethod.Post))
+@using (Html.BeginForm("EditById", "Users", FormMethod.Post))
 {
     <div>
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name)
-        @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div>
         @Html.LabelFor(m => m.Email)
         @Html.TextBoxFor(m => m.Email)
-        @Html.ValidationMessageFor(m => m.Email)
     </div>
 
-    <input type="submit" />
+    @Html.HiddenFor(m=>m.Id);
+
+    <input type="submit" value="Edit"/>
 }

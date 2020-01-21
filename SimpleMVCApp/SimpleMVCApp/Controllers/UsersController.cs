@@ -52,11 +52,32 @@
         [HttpPost]
         public ActionResult CreateUser2(User u)
         {
+            if(!ModelState.IsValid)
+            {
+                return View("Create", u);
+            }
+
             this.userData.AddUser(u);
 
             return RedirectToAction("Index");
 
             //return this.View("Index");
+        }
+    
+        [HttpGet]
+        public ActionResult EditById(int id)
+        {
+            var u = this.userData.GetUser(id);
+
+            return View(u);
+        }
+
+        [HttpPost]
+        public ActionResult EditById(User u)
+        {
+            this.userData.Edit(u);
+
+            return RedirectToAction("Index");
         }
     }
 }
