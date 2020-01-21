@@ -1,29 +1,41 @@
 ﻿@model List<SimpleMVCApp.Models.User>
 
+<style>
+    #users td, #users th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+</style>
+
 <div>
     <h1>Users</h1>
 </div>
 
 <div>
-    <table>
+    <table id="users">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-        @{
-            foreach (var user in Model)
-            {
-                <tr>
-                    <td>@user.Id</td>
-                    <td>@user.Name</td>
-                    <td>@user.Email</td>
-                </tr>
+            @{
+                foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@Html.ActionLink("Vezi", "ById", "Users", new { id = @user.Id }, null )</td>
+                    </tr>
+                }
             }
-        }
         </tbody>
     </table>
+
+    @Html.ActionLink("Create", "Create", "Users")
+
 </div>
