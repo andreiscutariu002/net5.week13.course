@@ -18,6 +18,8 @@
 
 @using (Html.BeginForm("CreateUser2", "Users", FormMethod.Post))
 {
+    @*@Html.ValidationSummary();*@
+
     <div>
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name)
